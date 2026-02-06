@@ -4,11 +4,11 @@ import DealPage from './AllDeal';
 
 const MasterPage: React.FC = () => {
     const todayRef = useRef<HTMLButtonElement>(null);
-    const [currentTime, setCurrentTime] = useState(new Date());
+    // const [currentTime, setCurrentTime] = useState(new Date());
 
     useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-        return () => clearInterval(timer);
+        // const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+        // return () => clearInterval(timer);
     }, []);
 
     useEffect(() => {
@@ -46,9 +46,9 @@ const MasterPage: React.FC = () => {
                             <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> LIVE
                         </div>
                     </div>
-                    <div className="text-2xl font-mono font-black text-gray-800 tracking-tighter">
+                    {/* <div className="text-2xl font-mono font-black text-gray-800 tracking-tighter">
                         {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-2 space-y-1 scroll-smooth bg-gray-50/20">
@@ -95,7 +95,7 @@ const MasterPage: React.FC = () => {
             </aside>
 
             {/* RIGHT CONTENT: Deal Funnel */}
-            <main className="flex-1 overflow-hidden relative">
+            <main className="flex-1 h-full overflow-hidden relative">
                 <DealPage />
             </main>
         </div>
