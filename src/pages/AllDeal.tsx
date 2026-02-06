@@ -34,7 +34,10 @@ export default function DealPage() {
     // Memoize the grouped leads to prevent heavy recalculations on every render
     const leadsByOwner = useMemo(() => {
         return team.reduce((acc, person) => {
-            acc[person] = leads.filter(lead => lead.lead_owner === person);
+            acc[person] = leads.filter(lead => lead.lead_owner === person)[0]?.leads.slice(1, 5);
+            
+
+            
             return acc;
         }, {});
     }, [leads, team]);
